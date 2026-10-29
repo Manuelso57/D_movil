@@ -1,0 +1,46 @@
+{
+  "rangos": {
+    "criticoMin": 0.3,
+    "advertenciaMin": 0.5,
+    "normalMin": 0.5,
+    "normalMax": 1.5,
+    "advertenciaMax": 2.0,
+    "unidad": "ppm"
+  },
+  "usuarios": [
+    { "id": 1, "nombre": "Pedro Rojas", "rol": "OPERARIO", "usuario": "operario", "clave": "1234" },
+    { "id": 2, "nombre": "Carla Soto", "rol": "SUPERVISOR", "usuario": "supervisor", "clave": "1234" },
+    { "id": 3, "nombre": "Andrés Mena", "rol": "JEFATURA", "usuario": "jefatura", "clave": "1234" }
+  ],
+  "granjas": [
+    { "id": 1, "nombre": "Granja Los Aromos", "ubicacion": "Melipilla" },
+    { "id": 2, "nombre": "Granja El Retiro", "ubicacion": "Alhué" }
+  ],
+  "puntos": [
+    { "id": 1, "granjaId": 1, "nombre": "Galpón 1 - Entrada", "tipo": "GALPON", "estadoActual": "NORMAL", "nivelActual": 0.9, "ultimaActualizacion": "2026-10-20T08:15:00" },
+    { "id": 2, "granjaId": 1, "nombre": "Galpón 2 - Bebederos", "tipo": "GALPON", "estadoActual": "CRITICO", "nivelActual": 0.1, "ultimaActualizacion": "2026-10-20T08:20:00" },
+    { "id": 3, "granjaId": 2, "nombre": "Galpón A - Estanque", "tipo": "GALPON", "estadoActual": "ADVERTENCIA", "nivelActual": 1.7, "ultimaActualizacion": "2026-10-20T08:05:00" },
+    { "id": 4, "granjaId": 2, "nombre": "Punto Red Principal", "tipo": "PUNTO_RED", "estadoActual": "NORMAL", "nivelActual": 1.1, "ultimaActualizacion": "2026-10-20T08:10:00" }
+  ],
+  "mediciones": [
+    { "id": 1, "puntoId": 1, "nivelCloro": 1.0, "fechaHora": "2026-10-20T06:00:00", "estado": "NORMAL", "origen": "SISTEMA", "observacion": null },
+    { "id": 2, "puntoId": 1, "nivelCloro": 0.9, "fechaHora": "2026-10-20T08:15:00", "estado": "NORMAL", "origen": "SISTEMA", "observacion": null },
+    { "id": 3, "puntoId": 2, "nivelCloro": 0.8, "fechaHora": "2026-10-20T06:00:00", "estado": "NORMAL", "origen": "SISTEMA", "observacion": null },
+    { "id": 4, "puntoId": 2, "nivelCloro": 0.4, "fechaHora": "2026-10-20T07:10:00", "estado": "ADVERTENCIA", "origen": "SISTEMA", "observacion": null },
+    { "id": 5, "puntoId": 2, "nivelCloro": 0.1, "fechaHora": "2026-10-20T08:20:00", "estado": "CRITICO", "origen": "SISTEMA", "observacion": null },
+    { "id": 6, "puntoId": 3, "nivelCloro": 1.4, "fechaHora": "2026-10-20T06:00:00", "estado": "NORMAL", "origen": "SISTEMA", "observacion": null },
+    { "id": 7, "puntoId": 3, "nivelCloro": 1.7, "fechaHora": "2026-10-20T08:05:00", "estado": "ADVERTENCIA", "origen": "SISTEMA", "observacion": null },
+    { "id": 8, "puntoId": 4, "nivelCloro": 1.1, "fechaHora": "2026-10-20T08:10:00", "estado": "NORMAL", "origen": "MANUAL", "observacion": "Control de rutina" }
+  ],
+  "alertas": [
+    { "id": 1, "puntoId": 2, "medicionId": 5, "estado": "CRITICO", "mensaje": "Cloro libre bajo el mínimo (0.1 ppm)", "fechaHora": "2026-10-20T08:20:00", "activa": true },
+    { "id": 2, "puntoId": 3, "medicionId": 7, "estado": "ADVERTENCIA", "mensaje": "Cloro libre sobre el rango normal (1.7 ppm)", "fechaHora": "2026-10-20T08:05:00", "activa": true }
+  ],
+  "desviaciones": [
+    { "id": 1, "alertaId": 1, "puntoId": 2, "descripcion": "Nivel crítico de cloro en bebederos del galpón 2", "estado": "EN_GESTION", "fechaDeteccion": "2026-10-20T08:20:00", "responsableId": 2 }
+  ],
+  "acciones": [
+    { "id": 1, "desviacionId": 1, "usuarioId": 2, "descripcion": "Se revisa el dosificador de cloro", "fechaHora": "2026-10-20T08:35:00" },
+    { "id": 2, "desviacionId": 1, "usuarioId": 1, "descripcion": "Se ajusta dosificación y se remide en 30 minutos", "fechaHora": "2026-10-20T08:50:00" }
+  ]
+}
